@@ -1,5 +1,11 @@
 import React from 'react'
 import {useHistory, useParams} from "react-router-dom"
+import styled from 'styled-components';
+
+let Box = styled.div`
+  padding : 20px;
+  background-color : black;
+`;
 
 
 function Detail(props) {
@@ -16,6 +22,7 @@ function Detail(props) {
   return (
     <>
       <div className="container">
+        <Box/>
         <div className="row">
           <div className="col-md-6">
             <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
