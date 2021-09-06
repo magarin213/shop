@@ -12,9 +12,14 @@ function App() {
   const [shoes, setShoes] = useState(data);
 
   const buttonMore = ()=> {
+    
+    //로딩 ui 출력
+    //axios.post("서버URL", { id : "codingapple", pw : 1234})
+
     axios.get("https://codingapple1.github.io/shop/data2.json")
     .then((res)=>{
-      console.log(res)
+      //로딩중ui 제거
+      setShoes([...shoes, ...res.data])
     })
     .catch(()=>{
       console.log("실패했어요")
