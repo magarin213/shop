@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react'
 import {useHistory, useParams} from "react-router-dom"
 import styled from 'styled-components';
 import '../../../Detail.css'
+import Stock from "./Stock"
 
 function Detail(props) {
 
 const [alert, setAlert] = useState(true);
 const [inputData, setinput] = useState('');
 
-
+const handler = () => {
+  props.setProduct([9,10,11])
+}
 
 useEffect(() => {
   let timer = setTimeout(() => {
@@ -51,7 +54,11 @@ const inputHandler = (e)=> {
             <h4 className="pt-5">{findproduct.title}</h4>
             <p>{findproduct.content}</p>
             <p>{findproduct.price}</p>
-            <button className="btn btn-danger">주문하기</button> 
+
+
+          <Stock product={props.product}></Stock>
+
+            <button className="btn btn-danger" onClick={handler}>주문하기</button> 
             <button className="btn btn-danger" onClick={BackPage}>뒤로가기</button> 
           </div>
         </div>

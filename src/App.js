@@ -10,6 +10,7 @@ import axios from 'axios';
 function App() {
 
   const [shoes, setShoes] = useState(data);
+  const [product, setProduct] = useState([1,2,3,4,5])
 
   const buttonMore = ()=> {
     
@@ -75,7 +76,7 @@ function App() {
           </div>
         </Route>
       <Route path="/detail/:id">
-        <Detail shoes={shoes}/>
+        <Detail shoes={shoes} product={product} setProduct={setProduct}/>
       </Route>
 </Switch>
 
