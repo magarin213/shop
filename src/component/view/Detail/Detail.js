@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {useHistory, useParams} from "react-router-dom"
 import styled from 'styled-components';
-
-let Box = styled.div`
-  padding : 20px;
-  background-color : black;
-`;
-
+import '../../../Detail.css'
 
 function Detail(props) {
+
+const [alert, setAlert] = useState(true);
+
+
+useEffect(() => {
+  let timer = setTimeout(() => {
+    setAlert(false)
+  }, 2000);
+});
 
   let { id } = useParams();
   let history = useHistory();
@@ -22,7 +26,16 @@ function Detail(props) {
   return (
     <>
       <div className="container">
-        <Box/>
+
+    {
+      alert === true 
+      ? <div className="my-alert">
+        <p>재고가 얼마 남지 않았습니다</p>
+        </div>
+      : null
+    }
+
+
         <div className="row">
           <div className="col-md-6">
             <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
