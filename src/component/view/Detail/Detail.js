@@ -6,13 +6,20 @@ import '../../../Detail.css'
 function Detail(props) {
 
 const [alert, setAlert] = useState(true);
+const [inputData, setinput] = useState('');
+
 
 
 useEffect(() => {
   let timer = setTimeout(() => {
     setAlert(false)
   }, 2000);
-});
+  return ()=>{clearTimeout(timer)}
+}, [alert])
+
+const inputHandler = (e)=> {
+  setinput(e.target.value)
+}
 
   let { id } = useParams();
   let history = useHistory();
@@ -26,7 +33,7 @@ useEffect(() => {
   return (
     <>
       <div className="container">
-
+    <input onChange={inputHandler}/>
     {
       alert === true 
       ? <div className="my-alert">
