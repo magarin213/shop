@@ -5,11 +5,22 @@ import data from "./data";
 import Detail from './component/view/Detail/Detail';
 import ProductList from "./component/view/ProductList/ProductList"
 import {Link, Route, Switch} from "react-router-dom";
-
+import axios from 'axios';
 
 function App() {
 
   const [shoes, setShoes] = useState(data);
+
+  const buttonMore = ()=> {
+    axios.get("https://codingapple1.github.io/shop/data2.json")
+    .then((res)=>{
+      console.log(res)
+    })
+    .catch(()=>{
+      console.log("실패했어요")
+    })
+  }
+
 
   return (
     <div className="App">
@@ -48,13 +59,14 @@ function App() {
           </Jumbotron>
 
           <div className="container">
-          <div className="row">
-            {
-              shoes.map((e, i)=>{
-                return   <ProductList key={i} i={i} shoes={shoes[i]}></ProductList>
-              })
-            }
-          </div>
+            <div className="row">
+              {
+                shoes.map((e, i)=>{
+                  return   <ProductList key={i} i={i} shoes={shoes[i]}></ProductList>
+                })
+              }
+            </div>
+            <button className="btn btn-primary" onClick={buttonMore}>더보기</button>
           </div>
         </Route>
       <Route path="/detail/:id">
