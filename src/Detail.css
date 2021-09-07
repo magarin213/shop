@@ -9,3 +9,12 @@
 .my-alert p {
   margin-bottom : 0;
 }
+
+.animation-enter {
+  opacity: 0;
+}
+
+.animation-enter-active {
+  opacity: 1;
+  transition: all 500mx;
+}
