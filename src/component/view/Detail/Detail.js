@@ -10,7 +10,7 @@ const [alert, setAlert] = useState(true);
 const [inputData, setinput] = useState('');
 
 const handler = () => {
-  props.setProduct([9,10,11])
+  props.setProductamount([9,10,11])
 }
 
 useEffect(() => {
@@ -56,7 +56,7 @@ const inputHandler = (e)=> {
             <p>{findproduct.price}</p>
 
 
-          <Stock product={props.product}></Stock>
+          <Stock productamount={props.productamount}></Stock>
 
             <button className="btn btn-danger" onClick={handler}>주문하기</button> 
             <button className="btn btn-danger" onClick={BackPage}>뒤로가기</button> 

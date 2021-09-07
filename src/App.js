@@ -1,16 +1,21 @@
 import './App.css';
 import { Button, Navbar, Nav, NavDropdown, Container, Jumbotron } from 'react-bootstrap';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import data from "./data";
 import Detail from './component/view/Detail/Detail';
 import ProductList from "./component/view/ProductList/ProductList"
 import {Link, Route, Switch} from "react-router-dom";
 import axios from 'axios';
 
+export let Amountcontext = React.createContext();
+
+
 function App() {
 
+
+
   const [shoes, setShoes] = useState(data);
-  const [product, setProduct] = useState([1,2,3,4,5])
+  const [productamount, setProductamount] = useState([1,2,3,4,5])
 
   const buttonMore = ()=> {
     
@@ -65,6 +70,8 @@ function App() {
           </Jumbotron>
 
           <div className="container">
+
+            <Amountcontext.Provider value={productamount}>
             <div className="row">
               {
                 shoes.map((e, i)=>{
@@ -72,13 +79,19 @@ function App() {
                 })
               }
             </div>
+            </Amountcontext.Provider>
+
+
             <button className="btn btn-primary" onClick={buttonMore}>더보기</button>
           </div>
         </Route>
       <Route path="/detail/:id">
-        <Detail shoes={shoes} product={product} setProduct={setProduct}/>
+        <Detail shoes={shoes} productamount={productamount} setProductamount={setProductamount}/>
       </Route>
 </Switch>
+
+
+
 
 
     </div>
