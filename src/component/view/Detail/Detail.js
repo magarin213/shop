@@ -15,8 +15,11 @@ const [switchButton, setSwitchButton] = useState(false);
 
 const handler = () => {
   props.setProductamount([9,10,11])
+
 }
 
+console.log('Detail props', props) 
+debugger;
 useEffect(() => {
   let timer = setTimeout(() => {
     setAlert(false)

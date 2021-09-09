@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import data from "./data";
 import Detail from './component/view/Detail/Detail';
 import ProductList from "./component/view/ProductList/ProductList"
+import Cart from './component/view/Cart/Cart'
 import {Link, Route, Switch} from "react-router-dom";
 import axios from 'axios';
 
@@ -87,6 +88,10 @@ function App() {
         </Route>
       <Route path="/detail/:id">
         <Detail shoes={shoes} productamount={productamount} setProductamount={setProductamount}/>
+      </Route>
+
+      <Route path="/Cart">
+              <Cart/>
       </Route>
 </Switch>
 
